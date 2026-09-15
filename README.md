@@ -7,6 +7,7 @@
 - `/` — ホーム
 - `/about/` — プロフィール
 - `/research/` — 研究
+- `/education/` — 教育、批判的思考、講演・研修の相談
 - `/publications/` — 主な業績
 - `/books/` — 著書
 - `/books/free-energy-principle/` — 『自由エネルギー原理を哲学する』Web付録

@@ -145,6 +145,23 @@ h1 span { display: block; margin-top: .65rem; color: var(--muted); font-family: 
 .resource { min-height: 180px; padding: 26px; background: white; }
 .status { display: inline-block; margin-bottom: .85rem; color: var(--accent); font-size: .75rem; font-weight: 700; letter-spacing: .1em; }
 
+.course-list { display: grid; gap: 1px; border: 1px solid var(--line); background: var(--line); }
+.course { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 1.5rem; padding: 26px; background: white; }
+.course-meta { color: var(--accent); font-size: .78rem; font-weight: 700; letter-spacing: .06em; }
+.course h3 { margin-bottom: .45rem; font-size: 1.12rem; }
+.course p { margin: 0; color: var(--muted); font-size: .93rem; }
+.tag-list { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+.tag-list li { margin: 0; padding: .28rem .7rem; border: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+.cta-panel { padding: clamp(28px, 5vw, 56px); border: 1px solid var(--ink); background: var(--ink); color: white; }
+.cta-panel h2 { margin-bottom: 1rem; color: white; }
+.cta-panel p { max-width: 760px; color: #d6dce4; }
+.cta-panel .button-link { margin-top: 1rem; background: white; color: var(--ink); }
+.cta-panel .button-link:hover { background: var(--wash); color: var(--accent-dark); }
+.service-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 2rem 0; border: 1px solid #4a5260; background: #4a5260; }
+.service-list div { padding: 22px; background: var(--ink); }
+.service-list strong { display: block; margin-bottom: .35rem; }
+.service-list span { color: #c8d0da; font-size: .88rem; }
+
 .site-footer { border-top: 1px solid var(--line); }
 .footer-inner { max-width: var(--max); margin: 0 auto; padding: 30px 28px; display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: .82rem; }
 
@@ -166,6 +183,7 @@ h1 span { display: block; margin-top: .65rem; color: var(--muted); font-family: 
   .book-mark { min-height: 220px; }
   .book-mark .vertical { writing-mode: horizontal-tb; }
   .resource-list { grid-template-columns: 1fr; }
+  .service-list { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 520px) {
@@ -177,6 +195,7 @@ h1 span { display: block; margin-top: .65rem; color: var(--muted); font-family: 
   .section { padding: 52px 0; }
   .pub-item { grid-template-columns: 58px minmax(0, 1fr); }
   .footer-inner { padding: 24px 20px; flex-direction: column; }
+  .course { grid-template-columns: 1fr; gap: .55rem; padding: 22px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
