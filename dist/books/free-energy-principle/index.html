@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>『自由エネルギー原理を哲学する』Web付録｜佐藤亮司</title>
-  <meta name="description" content="佐藤亮司『自由エネルギー原理を哲学する』（勁草書房）のWeb付録。章ごとの追加資料、完全版参考文献、正誤表、更新情報。">
+  <meta name="description" content="佐藤亮司『自由エネルギー原理を哲学する』（勁草書房）のWeb付録。変分自由エネルギーと期待自由エネルギーの式変形を、本文の記号に対応させて解説します。">
   <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://ryojisato.org/books/free-energy-principle/">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/appendix.css">
 </head>
-<body>
+<body class="appendix">
   <a class="skip-link" href="#main">本文へ移動</a>
   <div class="site">
     <aside class="side">
@@ -31,7 +32,58 @@
       <main id="main" class="main prose">
         <p class="kicker">Web付録</p>
         <h1 class="page-title">自由エネルギー原理を哲学する<small>身体・意識・AIをつなぐ「大統一理論」の射程</small></h1>
-        <p class="lead">「予測する心」から「予測する生命」へ。自由エネルギー原理は、生命と心を統一的に理解する理論になりうるのか。本書は、実証的な知見と哲学的な議論を通じて、その核心と射程を検討します。</p>
+        <p class="lead">本書で「ウェブ上の付録に回した」式変形と、数式と概念の対応をここに掲載しています。式を追いたい読者にも、まず意味をつかみたい読者にも読める構成です。</p>
+
+        <section class="section" aria-labelledby="appendices">
+          <h2 id="appendices">付録</h2>
+          <p>第1章の変分自由エネルギーの式を土台にして、第4章の期待自由エネルギーへ進みます。初めて読む場合は、この順番がおすすめです。</p>
+          <div class="entries">
+            <article class="entry">
+              <p class="kicker">Web付録 01　第1章対応</p>
+              <h3><a href="/books/free-energy-principle/variational-free-energy/">変分自由エネルギーを式から理解する</a></h3>
+              <p>KLダイバージェンスはなぜ0以上なのか。そこから、自由エネルギーがサプライズの上界になること、そして「複雑性−正確性」への分解までを導きます。</p>
+              <ul class="tags"><li>KL非負性</li><li>サプライズの上界</li><li>複雑性と正確性</li><li>計算して確かめる</li><li>第6章への接続</li></ul>
+              <a class="more" href="/books/free-energy-principle/variational-free-energy/">付録01を読む</a>
+            </article>
+            <article class="entry">
+              <p class="kicker">Web付録 02　第4章対応</p>
+              <h3><a href="/books/free-energy-principle/expected-free-energy/">期待自由エネルギーで未来の方策を比べる</a></h3>
+              <p>部分観測マルコフ決定過程（POMDP）の考え方を導入し、期待自由エネルギーを認識価値と外的価値へ分解します。事前選好分布 <var>C</var> の役割も整理します。</p>
+              <ul class="tags"><li>POMDP</li><li>時間発展</li><li>認識価値</li><li>外的価値</li><li>事前選好分布 C</li><li>Ｔ字迷路</li></ul>
+              <a class="more" href="/books/free-energy-principle/expected-free-energy/">付録02を読む</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="notation">
+          <h2 id="notation">本文の記号との対応</h2>
+          <p>本文にある記号は置き換えません。時間発展を説明するために付録で追加する記号だけ、対応を明示します。</p>
+          <div class="table-wrap">
+            <table class="notation">
+              <thead><tr><th>意味</th><th>本文</th><th>Web付録</th></tr></thead>
+              <tbody>
+                <tr><td>外界の隠れた状態</td><td><var>x</var></td><td>第1章は <var>x</var>。時間発展では <var>s</var><sub>τ</sub>（<var>x</var> に対応）</td></tr>
+                <tr><td>感覚入力・観察</td><td><var>y</var></td><td>第1章は <var>y</var>。時間発展では <var>o</var><sub>τ</sub>（<var>y</var> に対応）</td></tr>
+                <tr><td>認識モデル（内部の信念）</td><td><var>q</var>(<var>x</var>)</td><td><var>q</var>(<var>x</var>)／<var>q</var>(<var>s</var><sub>τ</sub> | ·)</td></tr>
+                <tr><td>生成モデル</td><td><var>p</var>(<var>y</var>, <var>x</var>)</td><td>同じ <var>p</var></td></tr>
+                <tr><td>変分自由エネルギー</td><td><var>F</var>(<var>q</var>, <var>p</var> | <var>y</var>)</td><td>同じ <var>F</var></td></tr>
+                <tr><td>期待自由エネルギー</td><td>名称で表記</td><td>本文の <var>F</var> と区別する補助記号 <var>G</var>(π) を導入</td></tr>
+                <tr><td>事前選好分布</td><td><var>C</var></td><td><var>C</var> が定める分布を <var>p</var><sub><var>C</var></sub>(<var>o</var>) と表記</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="note"><strong>log と ln について</strong><p>本文では一般式に log、KLダイバージェンスの展開式に ln が現れます。付録では自然対数であることを明確にするため、導出を ln に統一します。対数の底を一貫して選べば、結論は変わりません。</p></div>
+        </section>
+
+        <section class="section" aria-labelledby="coverage">
+          <h2 id="coverage">本文の「付録を参照」との対応</h2>
+          <dl class="dated">
+            <div><dt>はじめに</dt><dd>具体的な式変形と、数式と概念の対応 → 付録01・02</dd></div>
+            <div><dt>第1章</dt><dd>KL非負性の証明／自由エネルギーがサプライズの上界になる導出／複雑性の項の詳細 → 付録01</dd></div>
+            <div><dt>第4章</dt><dd>時間発展を含む期待自由エネルギーの形式／認識価値と外的価値への分解／事前選好分布 <var>C</var> → 付録02</dd></div>
+            <div><dt>第6章 注7</dt><dd>説明力が同程度なら複雑なモデルが選ばれにくい理由 → 付録01「第6章への接続」</dd></div>
+          </dl>
+        </section>
 
         <section class="section" aria-labelledby="data">
           <h2 id="data">書誌情報</h2>
@@ -44,21 +96,16 @@
           </dl>
         </section>
 
-        <section class="section" aria-labelledby="contents">
-          <h2 id="contents">付録の内容<small>準備中</small></h2>
-          <p>刊行にあわせて、次の資料を掲載します。このページのURLは今後も変わりません。</p>
-          <dl class="areas">
-            <dt>章ごとの追加資料</dt><dd>本文を補う図表、解説、関連リンク。</dd>
-            <dt>完全版参考文献</dt><dd>本書に関連する文献情報とリンク。</dd>
-            <dt>正誤表</dt><dd>訂正がある場合はここでお知らせします。</dd>
-            <dt>更新情報</dt><dd>付録ページの追加・更新の履歴。</dd>
-          </dl>
+        <section class="section" aria-labelledby="errata">
+          <h2 id="errata">正誤表</h2>
+          <p>現在、訂正はありません。訂正がある場合はここでお知らせします。</p>
         </section>
 
         <section class="section" aria-labelledby="history">
           <h2 id="history">更新履歴</h2>
           <dl class="dated">
-            <div><dt>2026年9月</dt><dd>付録ページを開設しました（準備中）。</dd></div>
+            <div><dt>2026年10月</dt><dd>付録01・02を掲載しました。</dd></div>
+            <div><dt>2026年9月</dt><dd>付録ページを開設しました。</dd></div>
           </dl>
         </section>
       </main>

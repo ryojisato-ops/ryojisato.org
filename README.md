@@ -10,7 +10,11 @@
 - `/education/` — 教育、担当授業、批判的思考
 - `/publications/` — 主な業績
 - `/books/` — 著書
-- `/books/free-energy-principle/` — 『自由エネルギー原理を哲学する』Web付録
+- `/books/free-energy-principle/` — 『自由エネルギー原理を哲学する』Web付録（トップ、記号対応、正誤表、更新履歴）
+- `/books/free-energy-principle/variational-free-energy/` — 付録01 変分自由エネルギー（第1章対応）
+- `/books/free-energy-principle/expected-free-energy/` — 付録02 期待自由エネルギー（第4章対応）
+
+Web付録の原稿は `book publication/web-appendix/site/` で作られたものを、本の用語（複雑性・正確性・サプライズ・Ｔ字迷路など）に合わせて移植しています。付録専用の部品は `dist/assets/appendix.css`、計算機は `dist/assets/fep-calculator.js`（付録01だけが読み込む、サイトで唯一のJavaScript）です。
 
 公開ファイルは `dist/` にあります。GitHub Actionsが `main` ブランチへの更新を自動でGitHub Pagesへ反映します。
 

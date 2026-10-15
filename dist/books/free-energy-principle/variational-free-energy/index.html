@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>変分自由エネルギーを式から理解する｜Web付録01｜佐藤亮司</title>
+  <meta name="description" content="『自由エネルギー原理を哲学する』Web付録01。変分自由エネルギー、KLダイバージェンスの非負性、サプライズの上界、複雑性と正確性への分解を本文の記号で解説します。">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://ryojisato.org/books/free-energy-principle/variational-free-energy/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/assets/appendix.css">
+  <script src="/assets/fep-calculator.js" defer></script>
+</head>
+<body class="appendix">
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <div class="site">
+    <aside class="side">
+      <a class="masthead" href="/"><span class="masthead-ja">佐藤亮司</span><span class="masthead-en">Ryoji Sato</span></a>
+      <figure class="portrait"><img src="/assets/portrait.png" width="843" height="1133" alt="佐藤亮司のポートレート（高コントラストの版画風）"></figure>
+      <nav class="nav" aria-label="サイト内">
+        <a href="/">ホーム</a>
+        <a href="/about/">プロフィール</a>
+        <a href="/research/">研究</a>
+        <a href="/education/">教育</a>
+        <a href="/publications/">業績</a>
+        <a href="/books/" aria-current="page">著書</a>
+      </nav>
+      <p class="side-note">東京都立大学<br>大学教育センター 准教授</p>
+    </aside>
+
+    <div class="column">
+      <main id="main" class="main prose">
+        <p class="kicker"><a href="/books/free-energy-principle/">『自由エネルギー原理を哲学する』Web付録</a>　01　第1章対応</p>
+        <h1 class="page-title">変分自由エネルギーを式から理解する</h1>
+        <p class="lead">自由エネルギーは、なぜサプライズの上界になるのか。本文と同じ記号を使い、KLダイバージェンスの非負性から一段ずつ導きます。</p>
+        <ul class="meta"><li>目安 12分</li><li>前提：確率と対数の基礎</li><li>本文：第1章「サプライズの最小化から自由エネルギーの最小化へ」</li></ul>
+        <nav class="contents" aria-label="このページの内容">
+          <p>このページの内容</p>
+          <ol>
+            <li><a href="#map">記号と概念を結ぶ</a></li>
+            <li><a href="#start">出発点の式</a></li>
+            <li><a href="#kl-proof">KL非負性</a></li>
+            <li><a href="#upper-bound">サプライズの上界</a></li>
+            <li><a href="#decomposition">複雑性−正確性</a></li>
+            <li><a href="#example">計算して確かめる</a></li>
+            <li><a href="#chapter6">第6章への接続</a></li>
+          </ol>
+        </nav>
+
+        <section class="section" id="map" aria-labelledby="map-h">
+          <h2 id="map-h">1. まず、記号と概念を結ぶ</h2>
+          <p>数式の前に、本文の図で描かれた関係を確認します。外界そのものは直接には見えず、感覚入力を手がかりに、内部で外界についての信念を更新する——これが式の舞台です。</p>
+          <div class="flow" aria-label="外界・感覚入力・認識モデルの関係">
+            <div><b><var>x</var></b><span>外界の隠れた状態</span></div>
+            <span class="arrow" aria-hidden="true">→</span>
+            <div><b><var>y</var></b><span>感覚入力</span></div>
+            <span class="arrow" aria-hidden="true">→</span>
+            <div><b><var>q</var>(<var>x</var>)</b><span>認識モデル（内部の信念）</span></div>
+          </div>
+          <dl class="symbols">
+            <div><dt><var>p</var>(<var>x</var>)</dt><dd>観察前に外界をどう予想していたか。<strong>事前分布</strong>。</dd></div>
+            <div><dt><var>p</var>(<var>y</var> | <var>x</var>)</dt><dd>状態 <var>x</var> なら感覚 <var>y</var> がどれほど生じやすいか。<strong>尤度</strong>。</dd></div>
+            <div><dt><var>p</var>(<var>x</var> | <var>y</var>)</dt><dd>感覚 <var>y</var> を得た後の、生成モデル上の<strong>事後分布</strong>。</dd></div>
+            <div><dt><var>q</var>(<var>x</var>)</dt><dd>事後分布を近似する、内部の<strong>認識モデル</strong>。</dd></div>
+            <div><dt><var>p</var>(<var>y</var>, <var>x</var>)</dt><dd>感覚と外界がどう一緒に生じるかを表す<strong>生成モデル</strong>。</dd></div>
+            <div><dt><var>F</var>(<var>q</var>, <var>p</var> | <var>y</var>)</dt><dd>認識モデルと生成モデルと観察から決まる<strong>変分自由エネルギー</strong>。</dd></div>
+          </dl>
+        </section>
+
+        <section class="section" id="start" aria-labelledby="start-h">
+          <h2 id="start-h">2. 出発点は、二つの分布の隔たり</h2>
+          <p>本文の式(1)は次のように書かれています。本文では一般式に log を使っていますが、ここでは自然対数であることを明示して ln と書きます。</p>
+          <div class="eq"><span class="expr"><var>F</var>(<var>q</var>, <var>p</var> | <var>y</var>) = ∫ <var>q</var>(<var>x</var>) ln <span class="frac"><span><var>q</var>(<var>x</var>)</span><span><var>p</var>(<var>x</var> | <var>y</var>)</span></span> d<var>x</var> − ln <var>p</var>(<var>y</var>)</span><span class="no">(1)</span></div>
+          <p>積分の部分は、<var>q</var>(<var>x</var>) と生成モデル上の事後分布 <var>p</var>(<var>x</var> | <var>y</var>) のKLダイバージェンスです。</p>
+          <div class="eq"><span class="expr"><var>D</var><sub>KL</sub>(<var>q</var>(<var>x</var>) ∥ <var>p</var>(<var>x</var> | <var>y</var>)) = ∫ <var>q</var>(<var>x</var>) ln <span class="frac"><span><var>q</var>(<var>x</var>)</span><span><var>p</var>(<var>x</var> | <var>y</var>)</span></span> d<var>x</var></span></div>
+          <p>したがって式(1)は、短く書けば次の形です。</p>
+          <div class="eq key"><span class="expr"><var>F</var> = <var>D</var><sub>KL</sub>(<var>q</var> ∥ <var>p</var>(· | <var>y</var>)) − ln <var>p</var>(<var>y</var>)</span></div>
+          <div class="say"><strong>言葉にすると</strong><p>本文のとおり、（自由エネルギー）＝（KLダイバージェンス）＋（サプライズ）です。第1項が「認識モデルと事後分布のずれ」、第2項 −ln <var>p</var>(<var>y</var>) が「その感覚入力のサプライズ（驚き）」です。本文では、この式に基づいて認識モデルを調整する最小化を「知覚推論」と呼びます。</p></div>
+        </section>
+
+        <section class="section" id="kl-proof" aria-labelledby="kl-h">
+          <h2 id="kl-h">3. なぜKLダイバージェンスは0以上なのか</h2>
+          <p>鍵は、対数関数の凹性から得られるイェンセンの不等式です。<var>q</var>(<var>x</var>) &gt; 0 のところでは比較対象の <var>p</var>(<var>x</var> | <var>y</var>) も0でない、と仮定します。</p>
+          <ol class="steps">
+            <li>
+              <p class="label">定義を書き換える</p>
+              <div class="formula"><var>D</var><sub>KL</sub>(<var>q</var> ∥ <var>p</var>) = − E<sub><var>q</var></sub> [ ln <span class="frac"><span><var>p</var>(<var>x</var> | <var>y</var>)</span><span><var>q</var>(<var>x</var>)</span></span> ]</div>
+            </li>
+            <li>
+              <p class="label">−ln は凸関数なので、期待値を外へ出すと小さくなる</p>
+              <div class="formula">− E<sub><var>q</var></sub>[ln <var>r</var>] ≥ − ln E<sub><var>q</var></sub>[<var>r</var>]</div>
+              <p>ここで <var>r</var> = <var>p</var>(<var>x</var> | <var>y</var>) / <var>q</var>(<var>x</var>) と置きます。</p>
+            </li>
+            <li>
+              <p class="label">分布の総和は1</p>
+              <div class="formula">E<sub><var>q</var></sub> [ <span class="frac"><span><var>p</var></span><span><var>q</var></span></span> ] = ∫ <var>q</var>(<var>x</var>) <span class="frac"><span><var>p</var>(<var>x</var> | <var>y</var>)</span><span><var>q</var>(<var>x</var>)</span></span> d<var>x</var> = ∫ <var>p</var>(<var>x</var> | <var>y</var>) d<var>x</var> = 1</div>
+            </li>
+            <li class="result">
+              <p class="label">結論</p>
+              <div class="formula"><var>D</var><sub>KL</sub>(<var>q</var> ∥ <var>p</var>) ≥ −ln 1 = 0</div>
+            </li>
+          </ol>
+          <div class="note"><strong>等号になるのはいつか</strong><p><var>q</var>(<var>x</var>) = <var>p</var>(<var>x</var> | <var>y</var>) がほとんど至るところで成り立つときです。つまり、内部の近似が生成モデル上の事後分布と一致したとき、隔たりは0になります。</p></div>
+        </section>
+
+        <section class="section" id="upper-bound" aria-labelledby="ub-h">
+          <h2 id="ub-h">4. 自由エネルギーはサプライズを上から押さえる</h2>
+          <p>式(1)の右辺で、KLダイバージェンスは0未満になりません。そのため、直ちに次が成り立ちます。本文の表記では <var>F</var>(<var>q</var>, <var>p</var> | <var>y</var>) ≥ −log <var>p</var>(<var>y</var>) です。</p>
+          <div class="bound">
+            <div><span>変分自由エネルギー</span><strong><var>F</var>(<var>q</var>, <var>p</var> | <var>y</var>)</strong></div>
+            <div class="sign" aria-label="大なりイコール">≥</div>
+            <div><span>サプライズ</span><strong>−ln <var>p</var>(<var>y</var>)</strong></div>
+          </div>
+          <p>サプライズ −ln <var>p</var>(<var>y</var>) を直接計算するには、あらゆる外界状態 <var>x</var> を考慮して <var>p</var>(<var>y</var>) を求める必要があります。そこで、扱いやすい <var>q</var>(<var>x</var>) を導入し、その上界である <var>F</var> を下げます。<var>q</var> が事後分布へ近づくほど上界は締まり、両者が一致すると <var>F</var> はサプライズそのものになります。</p>
+        </section>
+
+        <section class="section" id="decomposition" aria-labelledby="dec-h">
+          <h2 id="dec-h">5. 同じ量を「複雑性−正確性」として読む</h2>
+          <p>生成モデルを <var>p</var>(<var>y</var>, <var>x</var>) = <var>p</var>(<var>y</var> | <var>x</var>)<var>p</var>(<var>x</var>) と分解すると、自由エネルギーは別の姿を見せます。本文の式(2)です。</p>
+          <div class="eq"><span class="expr"><var>F</var>(<var>y</var>, <var>p</var> | <var>q</var>) = <span class="ub"><span class="e">∫ <var>q</var>(<var>x</var>) ln <span class="frac"><span><var>q</var>(<var>x</var>)</span><span><var>p</var>(<var>x</var>)</span></span> d<var>x</var></span><small>複雑性</small></span> − <span class="ub"><span class="e">∫ <var>q</var>(<var>x</var>) ln <var>p</var>(<var>y</var> | <var>x</var>) d<var>x</var></span><small>正確性</small></span></span><span class="no">(2)</span></div>
+          <div class="pair">
+            <div><h3>複雑性（complexity）</h3><p><var>D</var><sub>KL</sub>(<var>q</var>(<var>x</var>) ∥ <var>p</var>(<var>x</var>))。観察後の信念が、事前の予想からどれほど移動したかを表します。</p></div>
+            <div><h3>正確性（accuracy）</h3><p>E<sub><var>q</var></sub>[ln <var>p</var>(<var>y</var> | <var>x</var>)]。その信念のもとで、実際の感覚入力をどれほどよく説明できるかを表します。</p></div>
+          </div>
+          <div class="say"><strong>言葉にすると</strong><p>本文のとおり、（自由エネルギー）＝（複雑性）−（正確性）です。本文では、この式に基づいて行動で感覚入力そのものを変える最小化を「行為推論」と呼びます。</p></div>
+          <h3>なぜ「複雑性」と呼ぶのか</h3>
+          <p>この項は、観察を受けて事前分布を事後的な信念へ変えるために、どれだけの情報を新たに使ったかを測ります。KLダイバージェンスは、事前分布に対する事後信念の情報利得、言い換えれば、観察に合わせてモデルをどれだけ作り込んだかの尺度です。そのため「複雑性」と呼ばれます。これはパラメータの個数そのものではありません。パラメータが多くても事後信念が事前分布からほとんど動かなければ、この意味での複雑性は小さくなりえます。</p>
+          <p>自由エネルギーを小さくするには、観察をよく説明しながら、事前分布から必要以上に離れない信念が求められます。複雑性を増したことで正確性がそれ以上に改善するなら、その増加は埋め合わせられます。反対に、正確性が同程度のまま、あるいは改善が複雑性の増加に見合わないままモデルを作り込むと、自由エネルギーが高くなります。この条件のもとで、複雑性の項は過剰に複雑なモデルへのペナルティとして働きます。これは「単純ならよい」でも「当てはまりさえよければよい」でもなく、両者の釣り合いです。</p>
+          <div class="note"><strong>ベイズ的モデル比較との関係</strong><p>候補となる生成モデルを <var>m</var> と書くと、モデルエビデンスは <var>p</var>(<var>y</var> | <var>m</var>) = ∫ <var>p</var>(<var>y</var> | <var>x</var>, <var>m</var>)<var>p</var>(<var>x</var> | <var>m</var>) d<var>x</var> です。<var>q</var>(<var>x</var>) がそのモデルの事後分布と一致するとき、最小化された自由エネルギーは −ln <var>p</var>(<var>y</var> | <var>m</var>) に一致します。近似が完全でなければ、自由エネルギーはこの値の上界です。したがって、各モデルについて自由エネルギーを最小化して比べることは、モデルエビデンスが大きいモデルを選ぶベイズ的モデル比較に対応します（モデルの事前確率が異なる場合は、それも合わせて考慮します）。モデルエビデンスは、データへの適合だけでなく、事前分布から事後分布への更新に要した複雑性も織り込むため、ここでも同じ釣り合いが現れます。</p></div>
+          <div class="note"><strong>本文の説明を読む際の注意</strong><p>本文で複雑性の項が「感覚状態 <var>y</var> に依存しない」とされるのは、<var>q</var> と <var>p</var> を固定した式の形についてです。実際の推論では <var>q</var> が観察に応じて更新されるため、複雑性の値も間接的に観察の影響を受けます。</p></div>
+        </section>
+
+        <section class="section" id="example" aria-labelledby="ex-h">
+          <h2 id="ex-h">6. 二値の世界で、上界を確かめる</h2>
+          <p>外界状態を <var>x</var> ∈ {0, 1}、得られた感覚を <var>y</var> = 1 とします。下の <var>q</var>(<var>x</var>=1) を動かすと、複雑性・正確性・自由エネルギーがどう変わるか確認できます。</p>
+          <div class="calc" data-fep-calculator>
+            <label><span>事前分布 <var>p</var>(<var>x</var>=1)</span><output data-out="prior">0.40</output><input data-input="prior" type="range" min="0.05" max="0.95" step="0.01" value="0.40"></label>
+            <label><span>認識モデル <var>q</var>(<var>x</var>=1)</span><output data-out="belief">0.50</output><input data-input="belief" type="range" min="0.05" max="0.95" step="0.01" value="0.50"></label>
+            <p class="fixed">固定した尤度：<var>p</var>(<var>y</var>=1 | <var>x</var>=1) = 0.85、<var>p</var>(<var>y</var>=1 | <var>x</var>=0) = 0.20</p>
+            <div class="results" aria-live="polite">
+              <div><span>複雑性</span><strong data-result="complexity">—</strong></div>
+              <div><span>正確性</span><strong data-result="accuracy">—</strong></div>
+              <div class="featured"><span>自由エネルギー <var>F</var></span><strong data-result="free-energy">—</strong></div>
+              <div><span>サプライズ −ln <var>p</var>(<var>y</var>)</span><strong data-result="surprise">—</strong></div>
+            </div>
+            <p class="obs" data-result="observation"></p>
+            <noscript><p class="obs">この計算機はJavaScriptで動きます。無効の場合は、例として <var>p</var>(<var>x</var>=1) = 0.40、<var>q</var>(<var>x</var>=1) = 0.50 のとき、複雑性 0.020、正確性 −0.886、<var>F</var> = 0.906、サプライズ = 0.777（単位は nat）です。</p></noscript>
+          </div>
+          <p class="caption">値の単位は nat（自然対数による情報量）。丸め表示のため、末尾に小さな差が出ることがあります。</p>
+        </section>
+
+        <section class="section" id="chapter6" aria-labelledby="c6-h">
+          <h2 id="c6-h">7. 第6章の「妄想」論へどうつながるか</h2>
+          <p>第6章の注7にあるように、感覚入力の説明力が同程度であれば、複雑なモデルの方が高い自由エネルギーを持つため、選ばれづらくなります。同じ感覚入力を同程度に説明できる二つの信念があるとしましょう。正確性がほぼ同じなら、事前分布からより大きく離れる信念ほど複雑性が大きくなり、自由エネルギーも高くなります。複雑性の項は、説明を過度に作り込むことへのペナルティとして働きます。</p>
+          <div class="compare">
+            <div><span>説明A</span><b>正確性：同程度</b><b>事前からの距離：小</b><strong><var>F</var> は低め</strong></div>
+            <div><span>説明B</span><b>正確性：同程度</b><b>事前からの距離：大</b><strong><var>F</var> は高め</strong></div>
+          </div>
+          <p>ただし、これは精神医学的な状態をこの一項だけで説明するという主張ではありません。第6章の議論を読むための、数理的な見取り図です。</p>
+        </section>
+
+        <nav class="pager" aria-label="前後の付録">
+          <a class="more" href="/books/free-energy-principle/expected-free-energy/"><span>次に読む</span>Web付録02　期待自由エネルギーで未来の方策を比べる</a>
+          <a href="/books/free-energy-principle/">付録トップへ</a>
+        </nav>
+      </main>
+
+      <footer class="footer">
+        <p>佐藤亮司　東京都立大学 大学教育センター</p>
+        <ul>
+          <li><a href="/about/#contact">連絡先</a></li>
+          <li><a href="https://www.tmu.ac.jp/stafflist/data/sa/24048.html">東京都立大学 教員紹介</a></li>
+          <li><a href="https://researchmap.jp/ryoji-sato">researchmap</a></li>
+          <li><a href="https://jglobal.jst.go.jp/public/202301002865024739">J-GLOBAL</a></li>
+        </ul>
+        <p class="copyright">© Ryoji Sato · ryojisato.org</p>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
