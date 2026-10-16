@@ -29,8 +29,4 @@ html = html.replace(/<ol class="pub-list">([\s\S]*?)<\/ol>/g, (all, body) => {
 });
 html = html.replace(/<!-- RESEARCHMAP:CREDIT:START -->[\s\S]*?<!-- RESEARCHMAP:CREDIT:END -->/, '<!-- RESEARCHMAP:CREDIT:START --><div class="note">researchmapの本人用エクスポートを2026年10月5日に確認し、公開情報を反映しました。独自に掲載している業績も含みます。<a href="https://researchmap.jp/ryoji-sato">researchmapのプロフィール</a></div><!-- RESEARCHMAP:CREDIT:END -->');
 await writeFile(page, html);
-const researchPath = new URL('../dist/research/index.html', import.meta.url);
-let research = await readFile(researchPath, 'utf8');
-if (!research.includes('25K16060')) research = research.replace('</main>', '<section class="section"><div class="wrap content-grid"><div class="content-label">RESEARCH PROJECT</div><div class="prose"><h2>現在の研究課題</h2><h3>自由エネルギー原理からの新たな生命理解の提案</h3><p>日本学術振興会 科学研究費助成事業・若手研究。2025年4月–2029年3月。研究代表者：佐藤亮司。</p><p><a href="https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-25K16060">研究課題の詳細（KAKEN）</a></p></div></div></section></main>');
-await writeFile(researchPath, research);
 console.log('Imported disclosed additions; preserved existing editorial content.');
