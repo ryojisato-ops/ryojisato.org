@@ -27,6 +27,6 @@ html = html.replace(/<ol class="pub-list">([\s\S]*?)<\/ol>/g, (all, body) => {
   items.sort((a,b) => Number(b.match(/pub-year">(\d{4})/)?.[1] || 0) - Number(a.match(/pub-year">(\d{4})/)?.[1] || 0));
   return `<ol class="pub-list">${items.join('')}</ol>`;
 });
-html = html.replace(/<!-- RESEARCHMAP:CREDIT:START -->[\s\S]*?<!-- RESEARCHMAP:CREDIT:END -->/, '<!-- RESEARCHMAP:CREDIT:START --><div class="note">researchmapの本人用エクスポートを2026年10月5日に確認し、公開情報を反映しました。独自に掲載している業績も含みます。<a href="https://researchmap.jp/ryoji-sato">researchmapのプロフィール</a></div><!-- RESEARCHMAP:CREDIT:END -->');
+html = html.replace(/<!-- RESEARCHMAP:CREDIT:START -->[\s\S]*?<!-- RESEARCHMAP:CREDIT:END -->/, '<!-- RESEARCHMAP:CREDIT:START --><div class="note"><p>researchmapの公開情報をもとに、主な業績を掲載しています（researchmapに未登録のものも一部含みます）。<a href="https://researchmap.jp/ryoji-sato">researchmapのプロフィール</a></p></div><!-- RESEARCHMAP:CREDIT:END -->');
 await writeFile(page, html);
 console.log('Imported disclosed additions; preserved existing editorial content.');
