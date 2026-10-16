@@ -180,6 +180,14 @@ small { font-size: .86em; }
   line-height: 1.75;
 }
 
+.lang-switch {
+  margin: -.6rem 0 0;
+  padding-left: .8rem;
+  font-size: .82rem;
+}
+.lang-switch a { color: var(--muted); }
+.lang-switch a:hover { color: var(--ai); }
+
 /* ---------- 見出しと本文 ---------- */
 
 h1, h2, h3 {
@@ -483,6 +491,28 @@ h1, h2, h3 {
 .footer a:hover { color: var(--ai); }
 .footer .copyright { margin-top: 1rem; }
 
+/* ---------- 英語ページ ---------- */
+
+:root:lang(en) { --measure: 35em; }
+:root:lang(en) body {
+  line-height: 1.7;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+:lang(en) .lead { line-height: 1.7; }
+:lang(en) .masthead-ja { letter-spacing: .02em; }
+:lang(en) .masthead-en { letter-spacing: .12em; text-transform: none; }
+:lang(en) .nav a,
+:lang(en) .kicker,
+:lang(en) .book-label,
+:lang(en) .button { letter-spacing: .02em; }
+:lang(en) .statement,
+:lang(en) .page-title,
+:lang(en) .section > h2,
+:lang(en) .areas dt,
+:lang(en) .book-title { letter-spacing: 0; word-break: normal; }
+:lang(en) .page-title small { letter-spacing: .02em; }
+
 /* ---------- 小さな画面 ---------- */
 
 @media (min-width: 881px) and (max-height: 760px) {
@@ -503,12 +533,14 @@ h1, h2, h3 {
     grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
       "mast portrait"
+      "lang portrait"
       "nav nav";
     align-items: end;
     gap: .9rem 1.2rem;
     padding: 1.4rem 0 0;
   }
   .masthead { grid-area: mast; }
+  .lang-switch { grid-area: lang; margin: 0; padding-left: 0; }
   .masthead-ja { font-size: 1.45rem; }
   .portrait {
     grid-area: portrait;
