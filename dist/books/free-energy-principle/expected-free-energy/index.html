@@ -55,12 +55,12 @@
             <div><span>本文</span><b><var>y</var></b><span class="arrow" aria-hidden="true">↔</span><b><var>o</var><sub>τ</sub></b><span>付録の補助記号</span><p>時点 τ の観察</p></div>
           </div>
           <p><var>s</var> は state、<var>o</var> は observation の頭文字です。記号を変えるのは、別の概念だからではなく、「どの時点の状態・観察か」を見失わないためです。</p>
-          <div class="note"><strong><var>G</var> は付録で導入する補助記号</strong><p>本文では「期待自由エネルギー」と名称で示されています。付録では、現在の観察に対する変分自由エネルギー <var>F</var> と、将来の方策を評価する期待自由エネルギーを区別するため、後者を <var>G</var>(π) と書きます。</p></div>
+          <div class="note"><strong><var>G</var> は付録で導入する補助記号</strong><p>本文では記号を使わず、「期待自由エネルギー」という名称で表しています。付録では、現在の観察に対する変分自由エネルギー <var>F</var> と、将来の方策を評価する期待自由エネルギーを区別するため、後者を <var>G</var>(π) と書きます。</p></div>
         </section>
 
         <section class="section" id="pomdp" aria-labelledby="pomdp-h">
           <h2 id="pomdp-h">2. 見えない状態のもとで、行為を選ぶ</h2>
-          <p>部分観測マルコフ決定過程（POMDP）は、外界の状態を直接には観察できない主体が、観察から状態を推論し、行為を選び、その結果として次の状態と観察へ進むモデルです。本文にあるとおり、外界から隔てられた生物という自由エネルギー最小化の前提の、自然な拡張です。</p>
+          <p>部分観測マルコフ決定過程（POMDP）は、外界の状態を直接には観察できない主体が、観察から状態を推論し、行為を選び、その結果として次の状態と観察へ進むモデルです。本文にあるとおり、これは「生物は外界から隔てられている」という自由エネルギー最小化の前提を、自然に拡張したものです。</p>
           <div class="timeline" aria-label="POMDPの時間発展">
             <div class="t">時点 τ</div><div></div><div class="t">時点 τ+1</div><div></div><div class="t">時点 τ+2</div>
             <div class="s"><var>s</var><sub>τ</sub><small>隠れ状態</small></div><div class="act">行為 <var>u</var><sub>τ</sub> →</div><div class="s"><var>s</var><sub>τ+1</sub><small>隠れ状態</small></div><div class="act">行為 <var>u</var><sub>τ+1</sub> →</div><div class="s"><var>s</var><sub>τ+2</sub><small>隠れ状態</small></div>
@@ -74,7 +74,7 @@
             <div><b><var>C</var></b>どの観察を望ましいとするか<p><span><var>p</var><sub><var>C</var></sub>(<var>o</var><sub>τ</sub>)</span></p></div>
             <div><b><var>D</var></b>最初の状態についての予想<p><span><var>p</var>(<var>s</var><sub>1</sub>)</span></p></div>
           </div>
-          <p class="caption"><var>A</var>・<var>B</var>・<var>D</var> はPOMDPの全体像を示すための補助表記です。本文で明示される事前選好分布 <var>C</var> は、そのまま保持しています。</p>
+          <p class="caption"><var>A</var>・<var>B</var>・<var>D</var> はPOMDPの全体像を示すための補助表記です。本文に登場する事前選好分布 <var>C</var> は、本文と同じ記号で表しています。</p>
         </section>
 
         <section class="section" id="definition" aria-labelledby="def-h">
@@ -83,7 +83,7 @@
           <div class="eq"><span class="expr"><var>G</var><sub>τ</sub>(π) = E<sub><var>q</var>(<var>o</var><sub>τ</sub>, <var>s</var><sub>τ</sub> | π)</sub> [ ln <var>q</var>(<var>s</var><sub>τ</sub> | π) − ln <var>p</var>(<var>o</var><sub>τ</sub>, <var>s</var><sub>τ</sub> | π) ]</span><span class="no">(3)</span></div>
           <p>複数時点にわたる方策の期待自由エネルギーは、評価する各時点の和として表せます。</p>
           <div class="eq key"><span class="expr"><var>G</var>(π) = ∑<sub>τ</sub> <var>G</var><sub>τ</sub>(π)</span></div>
-          <p>現在の観察について <var>F</var> を下げるのに対し、行為選択では、将来の予測について <var>G</var> が小さくなる方策を選びやすくなります。</p>
+          <p>知覚推論では現在の観察について <var>F</var> を小さくするのに対し、行為選択では、将来の予測について <var>G</var> が小さくなる方策が選ばれやすくなります。</p>
         </section>
 
         <section class="section" id="decomposition-g" aria-labelledby="decg-h">
@@ -100,21 +100,21 @@
             <div>
               <p>式(3)の生成モデルを、選好を組み込んだ <var>p</var>(<var>o</var><sub>τ</sub>, <var>s</var><sub>τ</sub> | π) ≈ <var>q</var>(<var>s</var><sub>τ</sub> | <var>o</var><sub>τ</sub>, π)<var>p</var><sub><var>C</var></sub>(<var>o</var><sub>τ</sub>) として書き換えます。</p>
               <div class="eq"><span class="expr"><var>G</var><sub>τ</sub>(π) ≈ E<sub><var>q</var></sub>[ ln <var>q</var>(<var>s</var><sub>τ</sub> | π) − ln <var>q</var>(<var>s</var><sub>τ</sub> | <var>o</var><sub>τ</sub>, π) − ln <var>p</var><sub><var>C</var></sub>(<var>o</var><sub>τ</sub>) ]</span></div>
-              <p>前半は「観察前の信念」と「観察後の信念」の対数比です。符号を反転させて観察ごとに平均すると、期待情報利得、すなわち認識価値になります。後半は事前選好分布の対数確率の期待値で、外的価値になります。</p>
+              <p>前半は「観察前の信念」と「観察後の信念」の対数比です。符号を反転させて観察について平均すると、期待情報利得、すなわち認識価値になります。後半は事前選好分布の対数確率の期待値で、外的価値になります。</p>
             </div>
           </details>
         </section>
 
         <section class="section" id="preference" aria-labelledby="pref-h">
           <h2 id="pref-h">5. <var>C</var> は「どんな観察を望むか」を表す</h2>
-          <p>事前選好分布 <var>C</var> は、本文のとおり「どのような感覚を観察するのが望ましいかについての確率分布」で、より高い確率をもつ感覚がより好ましいものであると解釈されます。付録では、その分布を <var>p</var><sub><var>C</var></sub>(<var>o</var>) と書きます。</p>
+          <p>事前選好分布 <var>C</var> は、本文のとおり「どのような感覚を観察するのが望ましいかについての確率分布」で、確率が高い感覚ほど好ましいものと解釈されます。付録では、その分布を <var>p</var><sub><var>C</var></sub>(<var>o</var>) と書きます。</p>
           <div class="prefs">
             <div class="bars" aria-label="事前選好分布の例">
               <div><span>報酬を得る</span><i style="--w: 88%"></i><em>0.88</em></div>
               <div><span>何も得ない</span><i style="--w: 10%"></i><em>0.10</em></div>
               <div><span>損失を被る</span><i style="--w: 2%"></i><em>0.02</em></div>
             </div>
-            <div><h3>確率予測との違い</h3><p>「報酬が起きそうだ」という予測と、「報酬が望ましい」という選好は別です。前者は世界についての信念、後者は結果に与える価値です。目標や欲求を信念の形に変換し、現実をその信念に近づけることで実現する——本文で紹介されている発想です。</p></div>
+            <div><h3>確率予測との違い</h3><p>「報酬が起きそうだ」という予測と、「報酬が望ましい」という選好は別です。前者は世界についての信念、後者は結果に与える価値です。目標や欲求を信念の形で表し、現実をその信念に近づけることで目標を実現する。これが本文で紹介されている発想です。</p></div>
           </div>
           <p>文献によっては、<var>C</var> を観察の対数選好を並べたベクトルとして表します。その場合も、外的価値は「予測される観察が選好にどれほど適うか」という同じ役割を担います。</p>
         </section>
@@ -132,18 +132,18 @@
             <div class="best"><span>方策B</span><strong>手がかり → 報酬の側へ</strong><p>1回目の移動に認識価値があり、2回目で外的価値を得やすい。</p></div>
             <div><span>方策C</span><strong>すぐ右の端へ</strong><p>方策Aと同様、情報を得ずに選ぶ。</p></div>
           </div>
-          <p>期待自由エネルギーの最小化は「望ましい結果に近づくこと（外的価値）」と「不確実性を減らすこと（認識価値）」を同時に評価するため、もっとも情報が得られる場所である手がかりを先に訪れる二段構えの方策Bが選ばれます。手がかり自体に報酬がなくても、それが後の選択を改善するなら認識価値があるのです。</p>
+          <p>期待自由エネルギーの最小化は「望ましい結果に近づくこと（外的価値）」と「不確実性を減らすこと（認識価値）」を同時に評価するため、もっとも多くの情報が得られる手がかりを先に訪れる二段構えの方策Bが選ばれます。手がかり自体に報酬がなくても、それが後の選択を改善するなら認識価値があるのです。</p>
           <p>ただし本文にあるとおり、事前選好が十分に強いと外的価値が認識価値に勝ち、手がかりを見ずに報酬の側へ直行する方策が選ばれやすくなります。逆に選好が弱かったり、自分の知識に自信がなかったりする局面では、まず手がかりを取りにいくふるまいが現れます。</p>
         </section>
 
         <section class="section" id="precision" aria-labelledby="prec-h">
           <h2 id="prec-h">7. 選好と「精度」を混同しない</h2>
-          <p><var>C</var> は、どの結果をどれほど望むかを定めます。本文で「事前選好分布の精度」や「精度に現れる事前選好の強さ」と呼ばれているのは、この分布の鋭さ、つまり選好の強さのことです。それとは別に、方策間の <var>G</var> の差を行為選択へどれほど強く反映するかを表す<strong>方策の精度</strong>があります。</p>
+          <p><var>C</var> は、どの結果をどれほど望むかを定めます。本文で「事前選好分布の精度」や「精度に現れる事前選好の強さ」と呼ばれているのは、この分布の鋭さ、つまり選好の強さのことです。それとは別に、方策間の <var>G</var> の差を、行為選択にどれほど強く反映させるかを表す<strong>方策の精度</strong>があります。</p>
           <div class="pair">
             <div><h3>事前選好分布 <var>C</var></h3><p>望ましい結果の「向きと強さ」を定める。</p></div>
-            <div><h3>方策の精度</h3><p>期待自由エネルギーが小さい方策へ、どれほど確信をもって絞るかを定める。</p></div>
+            <div><h3>方策の精度</h3><p>期待自由エネルギーが小さい方策に、どれほど確信をもって絞り込むかを定める。</p></div>
           </div>
-          <p>また、感覚や状態遷移の信頼度にも精度を考えることができます。これらは同じ「精度」という語でも、モデル内の役割が異なります。</p>
+          <p>また、精度は感覚や状態遷移の信頼度についても考えられます。同じ「精度」という語でも、それぞれモデルの中で果たす役割は異なります。</p>
         </section>
 
         <section class="takeaway" aria-labelledby="take-h">
@@ -157,7 +157,7 @@
         </section>
 
         <nav class="pager" aria-label="前後の付録">
-          <a class="more" href="/books/free-energy-principle/variational-free-energy/"><span>前に戻る</span>Web付録01　変分自由エネルギーを式から理解する</a>
+          <a class="more" href="/books/free-energy-principle/variational-free-energy/"><span>前の付録</span>Web付録01　変分自由エネルギーを式から理解する</a>
           <a href="/books/free-energy-principle/">付録トップへ</a>
         </nav>
       </main>
