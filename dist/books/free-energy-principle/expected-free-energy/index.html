@@ -60,7 +60,7 @@
 
         <section class="section" id="pomdp" aria-labelledby="pomdp-h">
           <h2 id="pomdp-h">2. 見えない状態のもとで、行為を選ぶ</h2>
-          <p>部分観測マルコフ決定過程（POMDP）は、外界の状態を直接には観察できない主体が、観察から状態を推論し、行為を選び、その結果として次の状態と観察へ進むモデルです。本文にあるとおり、これは「生物は外界から隔てられている」という自由エネルギー最小化の前提を、自然に拡張したものです。</p>
+          <p>部分観測マルコフ決定過程（POMDP）は、外界の状態を直接には観察できない主体が、観察から状態を推論し、行為を選び、その結果として次の状態と観察へ進むモデルです。本文にあるとおり、これは、生物は外界から隔てられているという自由エネルギー最小化の前提を、自然に拡張したものです。</p>
           <div class="timeline" aria-label="POMDPの時間発展">
             <div class="t">時点 τ</div><div></div><div class="t">時点 τ+1</div><div></div><div class="t">時点 τ+2</div>
             <div class="s"><var>s</var><sub>τ</sub><small>隠れ状態</small></div><div class="act">行為 <var>u</var><sub>τ</sub> →</div><div class="s"><var>s</var><sub>τ+1</sub><small>隠れ状態</small></div><div class="act">行為 <var>u</var><sub>τ+1</sub> →</div><div class="s"><var>s</var><sub>τ+2</sub><small>隠れ状態</small></div>
@@ -83,7 +83,7 @@
           <div class="eq"><span class="expr"><var>G</var><sub>τ</sub>(π) = E<sub><var>q</var>(<var>o</var><sub>τ</sub>, <var>s</var><sub>τ</sub> | π)</sub> [ ln <var>q</var>(<var>s</var><sub>τ</sub> | π) − ln <var>p</var>(<var>o</var><sub>τ</sub>, <var>s</var><sub>τ</sub> | π) ]</span><span class="no">(3)</span></div>
           <p>複数時点にわたる方策の期待自由エネルギーは、評価する各時点の和として表せます。</p>
           <div class="eq key"><span class="expr"><var>G</var>(π) = ∑<sub>τ</sub> <var>G</var><sub>τ</sub>(π)</span></div>
-          <p>知覚推論では現在の観察について <var>F</var> を小さくするのに対し、行為選択では、将来の予測について <var>G</var> が小さくなる方策が選ばれやすくなります。</p>
+          <p>現在の観察について <var>F</var> を小さくするのに対し、行為選択では、将来の予測について <var>G</var> が小さくなる方策が選ばれやすくなります。</p>
         </section>
 
         <section class="section" id="decomposition-g" aria-labelledby="decg-h">
