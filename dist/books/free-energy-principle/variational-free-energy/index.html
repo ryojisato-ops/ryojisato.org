@@ -32,8 +32,8 @@
 
     <div class="column">
       <main id="main" class="main prose">
-        <p class="kicker"><a href="/books/free-energy-principle/">『自由エネルギー原理を哲学する』Web付録</a>　01　第1章対応</p>
-        <h1 class="page-title">変分自由エネルギーを式から理解する</h1>
+        <p class="kicker"><a href="/books/free-energy-principle/">『自由エネルギー原理を<wbr>哲学する』Web付録</a>　01　第1章対応</p>
+        <h1 class="page-title">変分<wbr>自由エネルギーを<wbr>式から<wbr>理解する</h1>
         <p class="lead">自由エネルギーは、なぜサプライズの上界になるのか。本文と同じ記号を使い、KLダイバージェンスの非負性から一段ずつ導きます。</p>
         <ul class="meta"><li>目安 12分</li><li>前提：確率と対数の基礎</li><li>本文：第1章「サプライズの最小化から自由エネルギーの最小化へ」</li></ul>
         <nav class="contents" aria-label="このページの内容">
@@ -50,7 +50,7 @@
         </nav>
 
         <section class="section" id="map" aria-labelledby="map-h">
-          <h2 id="map-h">1. まず、記号と概念を結ぶ</h2>
+          <h2 id="map-h">1. まず、<wbr>記号と<wbr>概念を<wbr>結ぶ</h2>
           <p>数式の前に、本文の図で描かれた関係を確認します。外界そのものは直接には見えず、感覚入力を手がかりに、内部で外界についての信念を更新する——これが式の舞台です。</p>
           <div class="flow" aria-label="外界・感覚入力・認識モデルの関係">
             <div><b><var>x</var></b><span>外界の隠れた状態</span></div>
@@ -70,31 +70,31 @@
         </section>
 
         <section class="section" id="start" aria-labelledby="start-h">
-          <h2 id="start-h">2. 出発点は、二つの分布の隔たり</h2>
+          <h2 id="start-h">2. 出発点は、<wbr>二つの<wbr>分布の<wbr>隔たり</h2>
           <p>本文の式(1)は次のように書かれています。本文では一般式に log を使っていますが、ここでは自然対数であることを明示して ln と書きます。</p>
           <div class="eq"><span class="expr"><var>F</var>(<var>q</var>, <var>p</var> | <var>y</var>) = ∫ <var>q</var>(<var>x</var>) ln <span class="frac"><span><var>q</var>(<var>x</var>)</span><span><var>p</var>(<var>x</var> | <var>y</var>)</span></span> d<var>x</var> − ln <var>p</var>(<var>y</var>)</span><span class="no">(1)</span></div>
           <p>積分の部分は、<var>q</var>(<var>x</var>) と生成モデル上の事後分布 <var>p</var>(<var>x</var> | <var>y</var>) のKLダイバージェンスです。</p>
           <div class="eq"><span class="expr"><var>D</var><sub>KL</sub>(<var>q</var>(<var>x</var>) ∥ <var>p</var>(<var>x</var> | <var>y</var>)) = ∫ <var>q</var>(<var>x</var>) ln <span class="frac"><span><var>q</var>(<var>x</var>)</span><span><var>p</var>(<var>x</var> | <var>y</var>)</span></span> d<var>x</var></span></div>
           <p>したがって式(1)は、短く書けば次の形です。</p>
           <div class="eq key"><span class="expr"><var>F</var> = <var>D</var><sub>KL</sub>(<var>q</var> ∥ <var>p</var>(· | <var>y</var>)) − ln <var>p</var>(<var>y</var>)</span></div>
-          <div class="say"><strong>言葉にすると</strong><p>本文のとおり、（自由エネルギー）＝（KLダイバージェンス）＋（サプライズ）です。第1項が「認識モデルと事後分布のずれ」、第2項 −ln <var>p</var>(<var>y</var>) が「その感覚入力のサプライズ（驚き）」です。本文では、この式に沿って認識モデルを調整し、自由エネルギーを小さくすることを「知覚推論」と呼びます。</p></div>
+          <div class="say"><strong>言葉に<wbr>すると</strong><p>本文のとおり、（自由エネルギー）＝（KLダイバージェンス）＋（サプライズ）です。第1項が「認識モデルと事後分布のずれ」、第2項 −ln <var>p</var>(<var>y</var>) が「その感覚入力のサプライズ（驚き）」です。本文では、この式に沿って認識モデルを調整し、自由エネルギーを小さくすることを「知覚推論」と呼びます。</p></div>
         </section>
 
         <section class="section" id="kl-proof" aria-labelledby="kl-h">
-          <h2 id="kl-h">3. なぜKLダイバージェンスは0以上なのか</h2>
+          <h2 id="kl-h">3. なぜ<wbr>KLダイバージェンスは<wbr>0以上なのか</h2>
           <p>鍵は、対数関数の凹性から得られるイェンセンの不等式です。<var>q</var>(<var>x</var>) &gt; 0 となる <var>x</var> では、比較対象の <var>p</var>(<var>x</var> | <var>y</var>) も0でないと仮定します。</p>
           <ol class="steps">
             <li>
-              <p class="label">定義を書き換える</p>
+              <p class="label">定義を<wbr>書き換える</p>
               <div class="formula"><var>D</var><sub>KL</sub>(<var>q</var> ∥ <var>p</var>) = − E<sub><var>q</var></sub> [ ln <span class="frac"><span><var>p</var>(<var>x</var> | <var>y</var>)</span><span><var>q</var>(<var>x</var>)</span></span> ]</div>
             </li>
             <li>
-              <p class="label">−ln は凸関数なので、イェンセンの不等式から次が成り立つ</p>
+              <p class="label">−ln は<wbr>凸関数なので、<wbr>イェンセンの<wbr>不等式から<wbr>次が<wbr>成り<wbr>立つ</p>
               <div class="formula">− E<sub><var>q</var></sub>[ln <var>r</var>] ≥ − ln E<sub><var>q</var></sub>[<var>r</var>]</div>
               <p>ここで <var>r</var> = <var>p</var>(<var>x</var> | <var>y</var>) / <var>q</var>(<var>x</var>) と置きます。</p>
             </li>
             <li>
-              <p class="label">事後分布を積分すると1になる</p>
+              <p class="label">事後分布を<wbr>積分すると<wbr>1に<wbr>なる</p>
               <div class="formula">E<sub><var>q</var></sub> [ <span class="frac"><span><var>p</var></span><span><var>q</var></span></span> ] = ∫ <var>q</var>(<var>x</var>) <span class="frac"><span><var>p</var>(<var>x</var> | <var>y</var>)</span><span><var>q</var>(<var>x</var>)</span></span> d<var>x</var> = ∫ <var>p</var>(<var>x</var> | <var>y</var>) d<var>x</var> = 1</div>
             </li>
             <li class="result">
@@ -102,11 +102,11 @@
               <div class="formula"><var>D</var><sub>KL</sub>(<var>q</var> ∥ <var>p</var>) ≥ −ln 1 = 0</div>
             </li>
           </ol>
-          <div class="note"><strong>等号になるのはいつか</strong><p><var>q</var>(<var>x</var>) = <var>p</var>(<var>x</var> | <var>y</var>) がほとんど至るところで成り立つときです。つまり、内部の近似が生成モデル上の事後分布と一致したとき、隔たりは0になります。</p></div>
+          <div class="note"><strong>等号に<wbr>なるのは<wbr>いつか</strong><p><var>q</var>(<var>x</var>) = <var>p</var>(<var>x</var> | <var>y</var>) がほとんど至るところで成り立つときです。つまり、内部の近似が生成モデル上の事後分布と一致したとき、隔たりは0になります。</p></div>
         </section>
 
         <section class="section" id="upper-bound" aria-labelledby="ub-h">
-          <h2 id="ub-h">4. 自由エネルギーはサプライズを上から押さえる</h2>
+          <h2 id="ub-h">4. 自由エネルギーは<wbr>サプライズを<wbr>上から<wbr>押さえる</h2>
           <p>式(1)の右辺のKLダイバージェンスは0未満にならないので、直ちに次の不等式が成り立ちます（本文の表記では <var>F</var>(<var>q</var>, <var>p</var> | <var>y</var>) ≥ −log <var>p</var>(<var>y</var>)）。</p>
           <div class="bound">
             <div><span>変分自由エネルギー</span><strong><var>F</var>(<var>q</var>, <var>p</var> | <var>y</var>)</strong></div>
@@ -117,24 +117,24 @@
         </section>
 
         <section class="section" id="decomposition" aria-labelledby="dec-h">
-          <h2 id="dec-h">5. 同じ量を「複雑性−正確性」として読む</h2>
+          <h2 id="dec-h">5. 同じ量を<wbr>「複雑性&#8288;−&#8288;正確性」と<wbr>して<wbr>読む</h2>
           <p>生成モデルを <var>p</var>(<var>y</var>, <var>x</var>) = <var>p</var>(<var>y</var> | <var>x</var>)<var>p</var>(<var>x</var>) と分解すると、自由エネルギーは別の姿を見せます。本文の式(2)です。</p>
           <div class="eq"><span class="expr"><var>F</var>(<var>y</var>, <var>p</var> | <var>q</var>) = <span class="ub"><span class="e">∫ <var>q</var>(<var>x</var>) ln <span class="frac"><span><var>q</var>(<var>x</var>)</span><span><var>p</var>(<var>x</var>)</span></span> d<var>x</var></span><small>複雑性</small></span> − <span class="ub"><span class="e">∫ <var>q</var>(<var>x</var>) ln <var>p</var>(<var>y</var> | <var>x</var>) d<var>x</var></span><small>正確性</small></span></span><span class="no">(2)</span></div>
           <div class="pair">
-            <div><h3>複雑性（complexity）</h3><p><var>D</var><sub>KL</sub>(<var>q</var>(<var>x</var>) ∥ <var>p</var>(<var>x</var>))。観察後の信念が、事前の予想からどれほど離れたかを表します。</p></div>
-            <div><h3>正確性（accuracy）</h3><p>E<sub><var>q</var></sub>[ln <var>p</var>(<var>y</var> | <var>x</var>)]。その信念のもとで、実際の感覚入力をどれほどよく説明できるかを表します。</p></div>
+            <div><h3>複雑性<wbr>（complexity）</h3><p><var>D</var><sub>KL</sub>(<var>q</var>(<var>x</var>) ∥ <var>p</var>(<var>x</var>))。観察後の信念が、事前の予想からどれほど離れたかを表します。</p></div>
+            <div><h3>正確性<wbr>（accuracy）</h3><p>E<sub><var>q</var></sub>[ln <var>p</var>(<var>y</var> | <var>x</var>)]。その信念のもとで、実際の感覚入力をどれほどよく説明できるかを表します。</p></div>
           </div>
-          <div class="say"><strong>言葉にすると</strong><p>本文のとおり、（自由エネルギー）＝（複雑性）−（正確性）です。本文では、この式に沿って、行動によって感覚入力そのものを変え、自由エネルギーを小さくすることを「行為推論」と呼びます。</p></div>
-          <div class="note"><strong>式(1)と式(2)で引数の順が違う理由</strong><p>本文は、式(1)を <var>F</var>(<var>q</var>, <var>p</var> | <var>y</var>)、式(2)を <var>F</var>(<var>y</var>, <var>p</var> | <var>q</var>) と書き分けて、知覚と行為を対比しています。縦棒の右に置いたものが、その場面で固定しておくものです。知覚推論（式(1)）では、得られた感覚入力 <var>y</var> を固定して、認識モデル <var>q</var> を調整します。行為推論（式(2)）では、認識モデル <var>q</var> を固定し、行為によって感覚入力 <var>y</var> そのものを変えます。量としては同じ自由エネルギーで、知覚と行為のどちらの側から小さくするかを、引数の順で示しています。</p></div>
-          <h3>なぜ「複雑性」と呼ぶのか</h3>
+          <div class="say"><strong>言葉に<wbr>すると</strong><p>本文のとおり、（自由エネルギー）＝（複雑性）−（正確性）です。本文では、この式に沿って、行動によって感覚入力そのものを変え、自由エネルギーを小さくすることを「行為推論」と呼びます。</p></div>
+          <div class="note"><strong>式(1)と<wbr>式(2)で<wbr>引数の<wbr>順が<wbr>違う<wbr>理由</strong><p>本文は、式(1)を <var>F</var>(<var>q</var>, <var>p</var> | <var>y</var>)、式(2)を <var>F</var>(<var>y</var>, <var>p</var> | <var>q</var>) と書き分けて、知覚と行為を対比しています。縦棒の右に置いたものが、その場面で固定しておくものです。知覚推論（式(1)）では、得られた感覚入力 <var>y</var> を固定して、認識モデル <var>q</var> を調整します。行為推論（式(2)）では、認識モデル <var>q</var> を固定し、行為によって感覚入力 <var>y</var> そのものを変えます。量としては同じ自由エネルギーで、知覚と行為のどちらの側から小さくするかを、引数の順で示しています。</p></div>
+          <h3>なぜ<wbr>「複雑性」と<wbr>呼ぶのか</h3>
           <p>この項は、観察を受けて事前分布を事後的な信念へ変えるために、どれだけの情報を新たに使ったかを測ります。KLダイバージェンスは、事前分布に対する事後信念の情報利得、言い換えれば、観察に合わせてモデルをどれだけ作り込んだかの尺度です。そのため「複雑性」と呼ばれます。ここでいう複雑性は、パラメータの個数のことではありません。パラメータが多くても事後信念が事前分布からほとんど動かなければ、この意味での複雑性は小さくなりえます。</p>
           <p>自由エネルギーを小さくするには、観察をよく説明しつつ、事前分布から必要以上に離れない信念が必要です。複雑性を増したことで正確性がそれ以上に改善するなら、その増加は埋め合わせられます。反対に、正確性が同程度のまま、あるいは改善が複雑性の増加に見合わないままモデルを作り込むと、自由エネルギーが高くなります。こうして、複雑性の項は過剰に複雑なモデルへのペナルティとして働きます。求められているのは「単純であればよい」でも「当てはまりさえよければよい」でもなく、両者の釣り合いです。</p>
-          <div class="note"><strong>ベイズ的モデル比較との関係</strong><p>候補となる生成モデルを <var>m</var> と書くと、モデルエビデンスは <var>p</var>(<var>y</var> | <var>m</var>) = ∫ <var>p</var>(<var>y</var> | <var>x</var>, <var>m</var>)<var>p</var>(<var>x</var> | <var>m</var>) d<var>x</var> です。<var>q</var>(<var>x</var>) がそのモデルの事後分布と一致するとき、最小化された自由エネルギーは −ln <var>p</var>(<var>y</var> | <var>m</var>) に一致します。近似が完全でなければ、自由エネルギーはこの値の上界です。したがって、各モデルについて自由エネルギーを最小化して比べることは、モデルエビデンスが大きいモデルを選ぶベイズ的モデル比較に対応します（モデルの事前確率が異なる場合は、それも合わせて考慮します）。モデルエビデンスは、データへの適合だけでなく、事前分布から事後分布への更新に要した複雑性も織り込むため、ここでも同じ釣り合いが現れます。</p></div>
-          <div class="note"><strong>本文の説明を読む際の注意</strong><p>本文で複雑性の項が「感覚状態 <var>y</var> に依存しない」とされているのは、<var>q</var> と <var>p</var> を固定したときの式の形についての話です。実際の推論では <var>q</var> が観察に応じて更新されるため、複雑性の値も間接的に観察の影響を受けます。</p></div>
+          <div class="note"><strong>ベイズ的モデル比較との<wbr>関係</strong><p>候補となる生成モデルを <var>m</var> と書くと、モデルエビデンスは <var>p</var>(<var>y</var> | <var>m</var>) = ∫ <var>p</var>(<var>y</var> | <var>x</var>, <var>m</var>)<var>p</var>(<var>x</var> | <var>m</var>) d<var>x</var> です。<var>q</var>(<var>x</var>) がそのモデルの事後分布と一致するとき、最小化された自由エネルギーは −ln <var>p</var>(<var>y</var> | <var>m</var>) に一致します。近似が完全でなければ、自由エネルギーはこの値の上界です。したがって、各モデルについて自由エネルギーを最小化して比べることは、モデルエビデンスが大きいモデルを選ぶベイズ的モデル比較に対応します（モデルの事前確率が異なる場合は、それも合わせて考慮します）。モデルエビデンスは、データへの適合だけでなく、事前分布から事後分布への更新に要した複雑性も織り込むため、ここでも同じ釣り合いが現れます。</p></div>
+          <div class="note"><strong>本文の<wbr>説明を<wbr>読む際の<wbr>注意</strong><p>本文で複雑性の項が「感覚状態 <var>y</var> に依存しない」とされているのは、<var>q</var> と <var>p</var> を固定したときの式の形についての話です。実際の推論では <var>q</var> が観察に応じて更新されるため、複雑性の値も間接的に観察の影響を受けます。</p></div>
         </section>
 
         <section class="section" id="example" aria-labelledby="ex-h">
-          <h2 id="ex-h">6. 二値の世界で、上界を確かめる</h2>
+          <h2 id="ex-h">6. 二値の<wbr>世界で、<wbr>上界を<wbr>確かめる</h2>
           <p>外界状態を <var>x</var> ∈ {0, 1}、得られた感覚を <var>y</var> = 1 とします。下の <var>q</var>(<var>x</var>=1) を動かすと、複雑性・正確性・自由エネルギーがどう変わるかを確かめられます。</p>
           <div class="calc" data-fep-calculator>
             <label><span>事前分布 <var>p</var>(<var>x</var>=1)</span><output data-out="prior">0.40</output><input data-input="prior" type="range" min="0.05" max="0.95" step="0.01" value="0.40"></label>
@@ -153,12 +153,12 @@
         </section>
 
         <section class="section" id="chapter6" aria-labelledby="c6-h">
-          <h2 id="c6-h">7. 第6章の妄想の説明へどうつながるか</h2>
+          <h2 id="c6-h">7. 第6章の<wbr>妄想の<wbr>説明へ<wbr>どう<wbr>つながるか</h2>
           <p>第6章の注7には、「感覚入力の説明力が同程度であれば、複雑なモデルの方が高い自由エネルギーを持つため、選ばれづらくなる」とあります。ここまでの式で言えば、正確性がほぼ同じなら、信念を事前分布から大きく動かす説明ほど複雑性が大きくなり、自由エネルギーも高くなる、ということです。</p>
           <p>本文の例に当てはめてみます。見知らぬ男の視線に意味を感じ、自分が警戒状態にあるとき、その感覚入力を説明する候補として、次の二つが比べられています。</p>
           <div class="compare">
-            <div><span>説明A</span><b>「あの男は私を監視している」</b><b>男の視線も自分の警戒状態も、この一つの仮説で説明する</b><strong><var>F</var> は低め</strong></div>
-            <div><span>説明B</span><b>「知り合いと勘違いしただけ」</b><b>警戒状態を説明するには、独立した仮説を別に足す必要がある</b><strong><var>F</var> は高め</strong></div>
+            <div><span>説明A</span><b>「あの<wbr>男は<wbr>私を<wbr>監視している」</b><b>男の<wbr>視線も<wbr>自分の<wbr>警戒状態も、<wbr>この<wbr>一つの<wbr>仮説で<wbr>説明する</b><strong><var>F</var> は<wbr>低め</strong></div>
+            <div><span>説明B</span><b>「知り合いと<wbr>勘違いしただけ」</b><b>警戒状態を<wbr>説明するには、<wbr>独立した<wbr>仮説を<wbr>別に<wbr>足す必要が<wbr>ある</b><strong><var>F</var> は<wbr>高め</strong></div>
           </div>
           <p>説明Bも、独立した仮説を足せば、感覚入力を説明Aと同程度に説明できます。しかしそのぶん、事前分布から動かさなければならない信念が増え、複雑性が大きくなります。正確性が同程度なら、この差がそのまま自由エネルギーの差になり、説明Aが選ばれやすくなります。本文が妄想仮説を、外的な感覚と内的な感覚を同時に説明できる「優れた仮説」と呼ぶのは、この意味においてです。</p>
           <p>ただし、どちらの複雑性が大きくなるかは、事前分布の設定しだいです。「監視されている」という仮説の事前確率が極端に低ければ、説明Aの方が事前分布から大きく離れることもありえます。また、これは精神医学的な状態をこの一項だけで説明するという主張ではありません。第6章の議論を読むための、数理的な見取り図です。</p>
