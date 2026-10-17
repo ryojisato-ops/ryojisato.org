@@ -80,7 +80,7 @@
         <section class="section" id="definition" aria-labelledby="def-h">
           <h2 id="def-h">3. まだ起きていない観察を、期待値で評価する</h2>
           <p>方策 π を採ったとき、将来の状態 <var>s</var><sub>τ</sub> と観察 <var>o</var><sub>τ</sub> はまだ確定していません。そこで、その方策のもとで予測される分布 <var>q</var>(<var>o</var><sub>τ</sub>, <var>s</var><sub>τ</sub> | π) によって平均を取ります。本文の言い方では、「ある方策を採用した場合の、未来にわたっての自由エネルギーの平均」です。</p>
-          <div class="eq"><span class="expr"><var>G</var><sub>τ</sub>(π) = E<sub><var>q</var>(<var>o</var><sub>τ</sub>, <var>s</var><sub>τ</sub> | π)</sub> [ ln <var>q</var>(<var>s</var><sub>τ</sub> | π) − ln <var>p</var>(<var>o</var><sub>τ</sub>, <var>s</var><sub>τ</sub> | π) ]</span><span class="no">(3)</span></div>
+          <div class="eq"><span class="expr"><var>G</var><sub>τ</sub>(π) = E<sub><var>q</var>(<var>o</var><sub>τ</sub>, <var>s</var><sub>τ</sub> | π)</sub> [ ln <var>q</var>(<var>s</var><sub>τ</sub> | π) − ln <var>p</var>(<var>o</var><sub>τ</sub>, <var>s</var><sub>τ</sub> | π) ]</span><span class="no">(A1)</span></div>
           <p>複数時点にわたる方策の期待自由エネルギーは、評価する各時点の和として表せます。</p>
           <div class="eq key"><span class="expr"><var>G</var>(π) = ∑<sub>τ</sub> <var>G</var><sub>τ</sub>(π)</span></div>
           <p>現在の観察について <var>F</var> を小さくするのに対し、行為選択では、将来の予測について <var>G</var> が小さくなる方策が選ばれやすくなります。</p>
@@ -98,7 +98,7 @@
           <details class="deriv">
             <summary>分解の途中式を見る</summary>
             <div>
-              <p>式(3)の生成モデルを、選好を組み込んだ <var>p</var>(<var>o</var><sub>τ</sub>, <var>s</var><sub>τ</sub> | π) ≈ <var>q</var>(<var>s</var><sub>τ</sub> | <var>o</var><sub>τ</sub>, π)<var>p</var><sub><var>C</var></sub>(<var>o</var><sub>τ</sub>) として書き換えます。</p>
+              <p>式(A1)の生成モデルを、選好を組み込んだ <var>p</var>(<var>o</var><sub>τ</sub>, <var>s</var><sub>τ</sub> | π) ≈ <var>q</var>(<var>s</var><sub>τ</sub> | <var>o</var><sub>τ</sub>, π)<var>p</var><sub><var>C</var></sub>(<var>o</var><sub>τ</sub>) として書き換えます。</p>
               <div class="eq"><span class="expr"><var>G</var><sub>τ</sub>(π) ≈ E<sub><var>q</var></sub>[ ln <var>q</var>(<var>s</var><sub>τ</sub> | π) − ln <var>q</var>(<var>s</var><sub>τ</sub> | <var>o</var><sub>τ</sub>, π) − ln <var>p</var><sub><var>C</var></sub>(<var>o</var><sub>τ</sub>) ]</span></div>
               <p>前半は「観察前の信念」と「観察後の信念」の対数比です。符号を反転させて観察について平均すると、期待情報利得、すなわち認識価値になります。後半は事前選好分布の対数確率の期待値で、外的価値になります。</p>
             </div>
@@ -133,7 +133,7 @@
             <div><span>方策C</span><strong>すぐ右の端へ</strong><p>方策Aと同様、情報を得ずに選ぶ。</p></div>
           </div>
           <p>期待自由エネルギーの最小化は「望ましい結果に近づくこと（外的価値）」と「不確実性を減らすこと（認識価値）」を同時に評価するため、もっとも多くの情報が得られる手がかりを先に訪れる二段構えの方策Bが選ばれます。手がかり自体に報酬がなくても、それが後の選択を改善するなら認識価値があるのです。</p>
-          <p>ただし本文にあるとおり、事前選好が十分に強いと外的価値が認識価値に勝ち、手がかりを見ずに報酬の側へ直行する方策が選ばれやすくなります。逆に選好が弱かったり、自分の知識に自信がなかったりする局面では、まず手がかりを取りにいくふるまいが現れます。</p>
+          <p>ただし本文にあるとおり、事前選好が十分に強いと外的価値が認識価値に勝ち、手がかりを見ずに、いきなりどちらかの端へ向かう方策（方策AやC）が選ばれやすくなります。逆に選好が弱かったり、自分の知識に自信がなかったりする局面では、まず手がかりを取りにいくふるまいが現れます。</p>
         </section>
 
         <section class="section" id="precision" aria-labelledby="prec-h">
@@ -150,7 +150,7 @@
           <h2 id="take-h">この付録の要点</h2>
           <ol>
             <li><var>G</var>(π) は、方策 π のもとで予測される将来を評価する。</li>
-            <li>最小化すると、認識価値と外的価値の両方が大きい方策が選ばれやすい。</li>
+            <li>最小化すると、認識価値と外的価値の和が大きい方策が選ばれやすい。</li>
             <li>認識価値は「知ること」、外的価値は「望ましい結果を得ること」の価値である。</li>
             <li><var>C</var> は結果への選好であり、世界についての予測や方策の精度とは区別される。</li>
           </ol>
