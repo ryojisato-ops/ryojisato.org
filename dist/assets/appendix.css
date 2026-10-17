@@ -89,6 +89,7 @@ sub, sup { font-size: .72em; line-height: 0; }
   color: var(--muted);
   font-size: .88rem;
 }
+.prose :is(.meta, .tags) > li + li { margin-top: 0; } /* 横並びは gap で間をあける */
 
 .contents {
   margin: 1.8rem 0 0;
@@ -283,12 +284,12 @@ details.deriv .eq { margin: .8rem 0; }
 .bars > div {
   display: grid;
   grid-template-columns: 6.5em minmax(0, 1fr) auto;
-  align-items: center;
+  align-items: baseline; /* 項目名と数値は文字の底で、棒は中央でそろえる */
   gap: .6rem;
   margin: .4rem 0;
   font-size: .9rem;
 }
-.bars i { display: block; height: .8rem; width: var(--w); background: var(--ai); }
+.bars i { display: block; align-self: center; height: .8rem; width: var(--w); background: var(--ai); }
 .bars em { font-style: normal; font-family: var(--serif); font-variant-numeric: tabular-nums; }
 .prefs h3 { margin: 0 0 .3rem; font-family: var(--serif); font-size: 1.05rem; }
 .prefs p { margin: 0; font-size: .92rem; color: var(--ink-soft); }
@@ -316,7 +317,7 @@ details.deriv .eq { margin: .8rem 0; }
   margin: 1.2rem 0;
 }
 .policies > div { padding: .8rem .9rem; border: 1px solid var(--rule); }
-.policies > .best { border: 2px solid var(--ai); }
+.policies > .best { border: 2px solid var(--ai); padding: calc(.8rem - 1px) calc(.9rem - 1px); } /* 太い枠のぶん中身が下がらないように */
 .policies span { font-size: .78rem; letter-spacing: .1em; color: var(--muted); }
 .policies strong { display: block; margin: .2rem 0 .3rem; font-family: var(--serif); font-size: 1.02rem; }
 .policies p { margin: 0; font-size: .88rem; color: var(--ink-soft); }
@@ -382,6 +383,7 @@ details.deriv .eq { margin: .8rem 0; }
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-end; /* 右の「付録トップへ」を左の題名の行にそろえる */
   gap: .6rem 1.5rem;
   margin-top: 3rem;
   padding-top: 1.2rem;
