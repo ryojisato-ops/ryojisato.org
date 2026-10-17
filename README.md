@@ -13,6 +13,7 @@
 - `/books/free-energy-principle/` — 『自由エネルギー原理を哲学する』Web付録（トップ、記号対応、正誤表、更新履歴）
 - `/books/free-energy-principle/variational-free-energy/` — 付録01 変分自由エネルギー（第1章対応）
 - `/books/free-energy-principle/expected-free-energy/` — 付録02 期待自由エネルギー（第4章対応）
+- `/en/` 以下 — 英語版（ホーム・プロフィール・研究・教育・業績・著書の6ページ）。Web付録は日本語のみです。
 
 Web付録の原稿は `book publication/web-appendix/site/` で作られたものを、本の用語（複雑性・正確性・サプライズ・Ｔ字迷路など）に合わせて移植しています。付録専用の部品は `dist/assets/appendix.css`、計算機は `dist/assets/fep-calculator.js`（付録01だけが読み込む、サイトで唯一のJavaScript）です。
 
@@ -28,6 +29,15 @@ Web付録の原稿は `book publication/web-appendix/site/` で作られたも�
 - 更新頻度を下げるため、日付つきの「近況」や担当授業の一覧は置いていません。年度で変わる情報は大学側のページへのリンクで済ませます。
 - 科研費などの研究課題は個別に掲載せず、researchmap（プロフィールからリンク）に任せます。期限つきの情報で、特定の理論を前面に出すことにもなるためです。
 - 業績ページの `<!-- RESEARCHMAP:* -->` マーカーと `pub-item` 系のクラス名は、`scripts/` の取り込みスクリプトが前提にしているため変えないでください。
+
+## 英語版
+
+- 日本語の各ページと `/en/` の対応ページは、`<link rel="alternate" hreflang>` と袖の言語切り替えリンクで相互に結んでいます。ページを追加・削除するときは両方とsitemapをそろえてください。
+- 英語版の文章は日本語版の訳です。日本語版を直したら、英語版も合わせて直します。
+- 英語の業績ページは手で更新します。researchmapの取り込みスクリプトが書き換えるのは日本語の業績ページだけです。
+- 新刊の英題は、カバーに印刷される公式の英題 *Philosophizing the Free Energy Principle: Body, Consciousness, and AI* を使います（2026年9月、勁草書房とのやりとりで確定）。
+- そのほかの日本語の書名には、ローマ字表記と［］内の英訳を添えています。［］内は仮訳で、公式の英題ではありません。
+- 英語ページの組版は `site.css` の `:lang(en)` で調整しています（行間・行長・字間）。
 
 ローカル確認:
 
