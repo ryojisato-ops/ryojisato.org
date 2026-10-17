@@ -16,13 +16,13 @@
 
 Web付録の原稿は `book publication/web-appendix/site/` で作られたものを、本の用語（複雑性・正確性・サプライズ・Ｔ字迷路など）に合わせて移植しています。付録専用の部品は `dist/assets/appendix.css`、計算機は `dist/assets/fep-calculator.js`（付録01だけが読み込む、サイトで唯一のJavaScript）です。
 
-公開ファイルは `dist/` にあります。GitHub Actionsが `main` ブランチへの更新を自動でGitHub Pagesへ反映します。
+公開ファイルは `dist/` にあります。GitHub Actionsが `main` ブランチへの更新をGitHub Pagesへ反映します（リポジトリ変数 `SITE_PUBLISH_APPROVED` が `true` のときだけ）。
 
 ## デザイン（2026年10月改装）
 
 - 左に袖（名前・肖像・目次）、右に本文一段組（約40字幅）の構成。小さな画面では袖が上部にまとまります。
 - 見出しは明朝、本文はゴシック。すべてOS標準フォントで、外部フォントや外部リクエストはありません。
-- JavaScriptは使っていません。スタイルは `dist/assets/site.css` のみです。
+- JavaScriptは付録01の計算機だけです。スタイルは `dist/assets/site.css`（付録ページは `appendix.css` も）です。
 - 白地に藍の罫線（原稿用紙の佇まい）。色はすべて `site.css` 冒頭の変数で決めています。
 - 肖像は `mix-blend-mode: multiply` で紙色の上に載せています。
 - 更新頻度を下げるため、日付つきの「近況」や担当授業の一覧は置いていません。年度で変わる情報は大学側のページへのリンクで済ませます。
