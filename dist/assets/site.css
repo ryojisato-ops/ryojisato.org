@@ -38,6 +38,8 @@ body {
   font-size: 17px;
   line-height: 1.9;
   overflow-wrap: anywhere;
+  line-break: strict; /* 行頭に小書きの仮名や長音符を置かない */
+  text-wrap: pretty; /* 段落の最終行に1、2字だけ残さない */
   hanging-punctuation: allow-end;
 }
 
@@ -198,6 +200,18 @@ h1, h2, h3 {
   margin: 0;
 }
 
+/* 見出しや短いラベルは、句読点と文節の切れ目（<wbr>）でだけ改行する。
+   <wbr> は scripts/add-wbr.py で入れる。Chrome の word-break: auto-phrase は <wbr> を
+   無視してカタカナ語の途中で折ることがあるので使わない。 */
+h1, h2, h3,
+.kicker, .book-label, .book-sub, .shelf .title, .pub-title, .areas dt, .dated dd,
+.label, .compare b, .policies strong, .note > strong, .say > strong,
+.book-title [lang="ja"] {
+  word-break: keep-all;
+  text-wrap: balance;
+}
+.prose strong { word-break: keep-all; } /* 太字の用語は途中で割らない */
+
 .kicker {
   margin: 0 0 1.1rem;
   color: var(--muted);
@@ -211,14 +225,13 @@ h1, h2, h3 {
   letter-spacing: .03em;
   line-height: 1.5;
   margin-bottom: 1.4rem;
-  word-break: keep-all; /* 読点・句点でのみ改行 */
 }
+.statement > span { display: block; } /* 一文ずつ行を改める */
 
 .page-title {
   font-size: clamp(1.9rem, 3.6vw, 2.4rem);
   letter-spacing: .1em;
   margin-bottom: 1rem;
-  word-break: keep-all;
 }
 .page-title small {
   display: block;
@@ -574,6 +587,7 @@ h1, h2, h3 {
 
 @media (max-width: 520px) {
   body { font-size: 16px; }
+  .page-title { font-size: 1.65rem; letter-spacing: .06em; }
   .dated > div {
     grid-template-columns: 1fr;
     row-gap: .15rem;
@@ -587,6 +601,10 @@ h1, h2, h3 {
   }
   .book-body { padding: 1.2rem 1.2rem 1.4rem; }
   .pub-item { grid-template-columns: 3.6em minmax(0, 1fr); }
+}
+
+@media (max-width: 360px) {
+  .page-title { font-size: 1.5rem; }
 }
 
 @media print {

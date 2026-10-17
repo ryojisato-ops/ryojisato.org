@@ -372,9 +372,11 @@ details.deriv .eq { margin: .8rem 0; }
 .table-wrap { margin: 1.2rem 0; overflow-x: auto; }
 .notation { width: 100%; border-collapse: collapse; font-size: .92rem; }
 .notation th, .notation td { padding: .55rem .6rem; border-top: 1px solid var(--rule); text-align: left; vertical-align: top; }
-.notation th { color: var(--muted); font-size: .8rem; font-weight: 600; letter-spacing: .06em; }
+.notation th { color: var(--muted); font-size: .8rem; font-weight: 600; letter-spacing: .06em; white-space: nowrap; }
+.notation td { overflow-wrap: normal; word-break: keep-all; } /* 文節（<wbr>）で折り、式や閉じ括弧の手前では折らない */
 .notation tr:last-child td { border-bottom: 1px solid var(--rule); }
 .notation td:first-child { white-space: nowrap; }
+.notation .f { white-space: nowrap; } /* 式は途中で折らない */
 
 .pager {
   display: flex;
@@ -391,6 +393,7 @@ details.deriv .eq { margin: .8rem 0; }
 
 @media (max-width: 640px) {
   .contents ol { columns: 1; }
+  .notation td:first-child { white-space: normal; } /* 狭い画面では式の列に幅を譲る */
   .symbols, .pair, .compare, .map2, .parts, .values, .prefs { grid-template-columns: 1fr; }
   .policies { grid-template-columns: 1fr; }
   .calc .results { grid-template-columns: 1fr 1fr; }

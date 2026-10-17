@@ -23,6 +23,7 @@ Web付録の原稿は `book publication/web-appendix/site/` で作られたも�
 
 - 左に袖（名前・肖像・目次）、右に本文一段組（約40字幅）の構成。小さな画面では袖が上部にまとまります。
 - 見出しは明朝、本文はゴシック。すべてOS標準フォントで、外部フォントや外部リクエストはありません。
+- 見出しや短いラベルは `word-break: keep-all` で、句読点と文節の切れ目（`<wbr>`）でだけ改行します。見出しを足したり書き換えたりしたら `python3 scripts/add-wbr.py` を実行してください（BudouX を使うので先に `python3 -m pip install budoux`。何度実行しても結果は同じです）。
 - JavaScriptは付録01の計算機だけです。スタイルは `dist/assets/site.css`（付録ページは `appendix.css` も）です。
 - 白地に藍の罫線（原稿用紙の佇まい）。色はすべて `site.css` 冒頭の変数で決めています。
 - 肖像は `mix-blend-mode: multiply` で紙色の上に載せています。
