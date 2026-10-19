@@ -148,8 +148,8 @@
           <h2 id="ex-h">6. 二値の<wbr>世界で、<wbr>上界を<wbr>確かめる</h2>
           <p>外界状態を <var>x</var> ∈ {0, 1}、得られた感覚を <var>y</var> = 1 とします。下の <var>q</var>(<var>x</var>=1) を動かすと、複雑性・正確性・自由エネルギーがどう変わるかを確かめられます。</p>
           <div class="calc" data-fep-calculator>
-            <label><span>事前分布 <var>p</var>(<var>x</var>=1)</span><output data-out="prior">0.40</output><input data-input="prior" type="range" min="0.05" max="0.95" step="0.01" value="0.40"></label>
-            <label><span>認識モデル <var>q</var>(<var>x</var>=1)</span><output data-out="belief">0.50</output><input data-input="belief" type="range" min="0.05" max="0.95" step="0.01" value="0.50"></label>
+            <label for="calc-prior"><span>事前分布 <var>p</var>(<var>x</var>=1)</span><output data-out="prior" for="calc-prior">0.40</output><input id="calc-prior" data-input="prior" type="range" min="0.05" max="0.95" step="0.01" value="0.40"></label>
+            <label for="calc-belief"><span>認識モデル <var>q</var>(<var>x</var>=1)</span><output data-out="belief" for="calc-belief">0.50</output><input id="calc-belief" data-input="belief" type="range" min="0.05" max="0.95" step="0.01" value="0.50"></label>
             <p class="fixed">固定した尤度：<var>p</var>(<var>y</var>=1 | <var>x</var>=1) = 0.85、<var>p</var>(<var>y</var>=1 | <var>x</var>=0) = 0.20</p>
             <div class="results" aria-live="polite">
               <div><span>複雑性</span><strong data-result="complexity">—</strong></div>

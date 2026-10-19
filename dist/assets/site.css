@@ -7,7 +7,7 @@
   --paper-deep: #f1f5fb;
   --ink: #1c1f26;
   --ink-soft: #3c424d;
-  --muted: #6b7280;
+  --muted: #666e7c; /* 淡い青の面（--paper-deep）の上でもコントラスト比4.5:1以上 */
   --rule: #b7c7e0;
   --rule-strong: #7d98bf;
   --ai: #2f4f7f;
