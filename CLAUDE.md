@@ -9,4 +9,5 @@
 
 - **main への push と PR の merge は即公開**(リポジトリ変数 `SITE_PUBLISH_APPROVED=true` の間、GitHub Actions が GitHub Pages へ出す)。公開は人間専権(hq/HUMAN_ONLY §4)
 - 作業はブランチで行い、PR を作るところまで。merge は RJ の明示的な指示があるときだけ
+- Google 検索への登録作業(Search Console・外部リンク)の手順は `docs/search-indexing.md`
 - `.claude/hooks/guard-publish.sh` が main への push・PR merge・公開変数の変更の前に確認を挟む(Claude Code のみ。Codex は対象外)
