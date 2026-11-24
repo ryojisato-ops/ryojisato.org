@@ -30,7 +30,7 @@ Web付録の原稿は `book publication/web-appendix/site/` で作られたも�
 - 更新頻度を下げるため、日付つきの「近況」や担当授業の一覧は置いていません。年度で変わる情報は大学側のページへのリンクで済ませます。
 - 科研費などの研究課題は個別に掲載せず、researchmap（プロフィールからリンク）に任せます。期限つきの情報で、特定の理論を前面に出すことにもなるためです。
 - SNSで共有されたときのカード画像は `dist/assets/og-site.png`（サイト全体）と `dist/assets/og-book.png`（著書・Web付録）です。元のHTMLは `scripts/og-cards/` にあり、macOS なら `swiftc -O scripts/og-cards/render.swift -o /tmp/render-og && /tmp/render-og scripts/og-cards/site.html dist/assets/og-site.png scripts/og-cards/book.html dist/assets/og-book.png` で作り直せます。各ページの `og:*` タグは、そのページの title・description・canonical と同じ内容にしてあるので、それらを変えたら合わせて直してください。
-- 検索エンジン向けの構造化データ（JSON-LD、`<script type="application/ld+json">`）を、ホーム（`WebSite`・`Person`）、プロフィール（`ProfilePage`）、新刊の付録トップ（`Book`）の日英に置いています。実行されるスクリプトではなくデータです。職名・所属・外部プロフィール・書誌を変えたら、ここも合わせて直してください。
+- 検索エンジン向けの構造化データ（JSON-LD、`<script type="application/ld+json">`）を、ホーム（`WebSite`・`Person`）とプロフィール（`ProfilePage`）の日英、新刊の付録トップ（`Book`、日本語のみ）に置いています。人物の記述（`#person`）は4ページにあり、名前・職名・所属・分野を各言語で書くほかは同じ内容（別名の一覧と `url` も共通）です。直すときは4ページまとめて直してください。実行されるスクリプトではなくデータです。職名・所属・外部プロフィール・書誌を変えたら、ここも合わせて直してください。
 - 業績ページの `<!-- RESEARCHMAP:* -->` マーカーと `pub-item` 系のクラス名は、`scripts/` の取り込みスクリプトが前提にしているため変えないでください。
 
 ## 英語版
